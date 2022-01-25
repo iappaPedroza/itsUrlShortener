@@ -1,19 +1,19 @@
-// import { URLController } from './controller/URLController'
+import { URLController } from './controller/URLController'
 import express, { Request, Response} from 'express'
-// import { MongoConnection } from './database/MongoConnection'
+import { MongoConnection } from './database/MongoConnection'
 
 const api = express()
 api.use(express.json())
 
-/* const database = new MongoConnection()
+const urlController = new URLController()
+const database = new MongoConnection()
 database.connect()
 
-const urlController = new URLController()
+api.get('/:hash', urlController.redirect)
 api.post('/shorten', urlController.shorten)
-api.get('/:hash', urlController.redirect) */
 
-api.get('/teste', (req: Request, res: Response) => {
+/* api.get('/teste', (req: Request, res: Response) => {
     res.json({ success: true})
-} )
+} ) */
 
-api.listen(5000, () => console.log('ITS - Fase 2 - MongoIng - Express listening'))
+api.listen(5000, () => console.log('ITS - Fase 3 - Preconnection MongoIng - Express listening'))
