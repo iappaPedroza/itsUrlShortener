@@ -21,7 +21,7 @@ export class URLController {
         res.json(newURL)
     }
 
-    public async redirect(req: Request, response: Response): Promise<void> {
+    public async redirect(req: Request, res: Response): Promise<void> {
         
         const { hash } = req.params
         const url = {
@@ -33,9 +33,9 @@ export class URLController {
         // const url = await URLModel.findOne({ hash })
         
         if(url) {
-            response.redirect(url.originURL)
+            res.redirect(url.originURL)
             return
         }
-        response.status(400).json({ error: 'URL not found' })
+        res.status(400).json({ error: 'URL not found' })
     } 
 }
