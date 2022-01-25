@@ -24,13 +24,9 @@ export class URLController {
     public async redirect(req: Request, res: Response): Promise<void> {
         
         const { hash } = req.params
-        const url = {
-            originURL: "https://cloud.mongodb.com/v2/61e97c760675d77ddf739f2e#clusters",
-            hash:"By0Ts626Y",
-            shorten:"http://localhost:5000/By0Ts626Y"
-        }
+        
 
-        // const url = await URLModel.findOne({ hash })
+        const url = await URLModel.findOne({ hash })
         
         if(url) {
             res.redirect(url.originURL)
